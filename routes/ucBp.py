@@ -1,16 +1,16 @@
 # adiciona o , render_template
 from flask import Blueprint, render_template
 from ..extensions import db
-from ..models.uc import Uc
+from ..models.uc import Series
 
 #Instanciar o blueprint
 ucBp = Blueprint('ucBp', __name__)
 
-@ucBp.route('/uc')
-def uc_list():
+@ucBp.route('/eventos')
+def serie_list():
 #    return "Teste"
     #adiciona isso
-#    db.create_all()
+    db.create_all()
 #   Adiciona o acesso a banco e a chamada ao render_template
-    ucs_query = Uc.query.all()
-    return render_template('uc_list.html', ucs=ucs_query)
+    filmes_query = Series.query.all()
+    return render_template('serie_list.html', filmes=filmes_query)
