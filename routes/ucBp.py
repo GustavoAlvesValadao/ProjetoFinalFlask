@@ -7,6 +7,10 @@ from datetime import date, datetime
 # Instanciar o blueprint
 ucBp = Blueprint('ucBp', __name__)
 
+@ucBp.route('/')
+def uc_home():
+    return render_template("uc_home.html")
+
 @ucBp.route('/uc')
 def uc_list():
 #    return "Teste"
