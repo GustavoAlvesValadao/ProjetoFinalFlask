@@ -1,6 +1,7 @@
 body,html{
     height: 100%;
     margin: 0%;
+    box-sizing: border-box;
 }
 
 .bg{
@@ -9,4 +10,27 @@ body,html{
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+}
+
+#menu-h ul{
+    list-style: none;
+    padding: 0;
+    background-color:goldenrod;
+}
+
+#menu-h ul li{
+    display: inline;
+}
+
+#menu-h ul li a{
+    color:aliceblue;
+    text-decoration: none;
+    padding: 15px;
+    display: inline-block;
+    transition: background .3s;
+}
+
+#menu-h ul li a:hover{
+    background-color:darkred;
+
 }
