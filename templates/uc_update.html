@@ -2,11 +2,11 @@
 <html lang="pt-br">
     <head>
         <meta charset="UTF-8">
-        <title>UC</title>
+        <title>Catálogo</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">    
     </head>
     <body>
-        <h1 style="text-align: center;">Crud UC</h1>
+        <h1 style="text-align: center;">Catálogo</h1>
         <form method="POST" action="/uc/upd">
         <input type="hidden" id="id" name="id" value="{{uc.id}}">
         <div class="container">
@@ -15,20 +15,24 @@
                     <table class="table">
                         <tbody>
                             <tr>
-                                <td>Nome: </td>
-                                <td><input type="text" name="nome" id="nome" value="{{uc.nome}}" required></td>
+                                <td>Título: </td>
+                                <td><input type="text" name="nome" id="nome" value="{{uc.titulo}}" required></td>
                             </tr>
                             <tr>
                                 <td>Tipo: </td>
-                                <td><input type="radio" name="tipo" id="tipo" value="Curso de Extensão" {{ "checked" if uc.tipo=="Curso de Extensão" else "" }} required> Curso de Extensão <input type="radio" name="tipo" id="tipo" value="Unidade Curricular" required {{ "checked" if uc.tipo=="Unidade Curricular" else "" }}> Unidade Curricular</td>
+                                <td><input type="radio" name="tipo" id="tipo" value="Filme" {{ "checked" if uc.tipo=="Filme" else "" }} required> Filme <input type="radio" name="tipo" id="tipo" value="Seriado" required {{ "checked" if uc.tipo=="Seriado" else "" }}> Seriado</td>
                             </tr>
                             <tr>
-                                <td>Data Início: </td>
-                                <td><input type="date" name="inicio" id="inicio" required format="dd/mm/yyyy" placeholder="DD-MM-YYYY" value="{{uc.inicio}}"></td>
+                                <td>Temporada: </td>
+                                <td><input type="text" name="temporada" id="temporada" value="{{uc.temporada}}" required></td>
                             </tr>
                             <tr>
-                                <td>Data Fim: </td>
-                                <td><input type="date" name="fim" id="fim" required format="dd/mm/yyyy" placeholder="DD-MM-YYYY" value="{{uc.fim}}"></td>
+                                <td>Episódio: </td>
+                                <td><input type="text" name="episodio" id="episodio" value="{{uc.episodio}}" required></td>
+                            </tr>
+                            <tr>
+                                <td>Data de Vizualização: </td>
+                                <td><input type="date" name="data" id="data" required format="dd/mm/yyyy" placeholder="DD-MM-YYYY" value="{{uc.data}}"></td>
                             </tr>
                             <tr>
                                 <td colspan="2"><input type="submit" value="Alterar"></td>

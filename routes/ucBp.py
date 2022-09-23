@@ -13,7 +13,7 @@ def uc_home():
 
 @ucBp.route('/uc')
 def uc_list():
-#    return "Teste"
+
     #nova adição
     db.create_all()
 # adiciona o acesso a banco e a chamada ao render_template
@@ -27,12 +27,13 @@ def create_uc():
 @ucBp.route('/uc/add', methods=["POST"])
 def add_uc():
 
-    sNome = request.form["nome"]
+    sTitulo = request.form["titulo"]
     sTipo = request.form["tipo"]
-    dInicio = datetime.strptime(request.form["inicio"], '%Y-%m-%d')
-    dFim = datetime.strptime(request.form["fim"], '%Y-%m-%d')
+    sTemporada = request.form["temporada"]
+    sEpisodio = request.form["episodio"]
+    dData = datetime.strptime(request.form["data"], '%Y-%m-%d')
 
-    uc = Uc(nome=sNome, tipo=sTipo, inicio=dInicio, fim=dFim)
+    uc = Uc(titulo=sTitulo, tipo=sTipo, temporada=sTemporada, episodio=sEpisodio, data=dData)
     db.session.add(uc)
     db.session.commit()
 
@@ -48,16 +49,18 @@ def update_uc(uc_id=0):
 def upd_uc():
 
     iUc = request.form["id"]
-    sNome = request.form["nome"]
+    sTitulo = request.form["titulo"]
     sTipo = request.form["tipo"]
-    dInicio = datetime.strptime(request.form["inicio"], '%Y-%m-%d')
-    dFim = datetime.strptime(request.form["fim"], '%Y-%m-%d')
+    sTemporada = request.form["temporada"]
+    sEpisodio = request.form["episodio"]
+    dData = datetime.strptime(request.form["fim"], '%Y-%m-%d')
 
     uc = Uc.query.filter_by(id = iUc).first()
-    uc.nome = sNome
+    uc.nome = sTitulo
     uc.tipo = sTipo
-    uc.inicio = dInicio
-    uc.fim = dFim
+    uc.temporada = sTemporada
+    uc.episodio = sEpisodio
+    uc.data = dData
     db.session.add(uc)
     db.session.commit()
 
