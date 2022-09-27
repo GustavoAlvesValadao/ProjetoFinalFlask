@@ -9,7 +9,7 @@ ucBp = Blueprint('ucBp', __name__)
 
 @ucBp.route('/')
 def uc_home():
-    return render_template("filmes_home.html"),200
+    return render_template("index.html")
 
 @ucBp.route('/uc')
 def uc_list():
