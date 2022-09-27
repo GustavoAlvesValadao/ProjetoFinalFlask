@@ -1,7 +1,7 @@
 from ..extensions import db
 
 class Uc(db.Model):
-    __tablename__ ="ucs"
+    __tablename__ ="filmes2"
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     titulo = db.Column(db.String(150))
     tipo = db.Column(db.String(50))

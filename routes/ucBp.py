@@ -7,14 +7,18 @@ from datetime import date, datetime
 # Instanciar o blueprint
 ucBp = Blueprint('ucBp', __name__)
 
+@ucBp.route('/')
+def uc_home():
+    return render_template("filmes_home.html"),200
+
 @ucBp.route('/uc')
 def uc_list():
 #    return "Teste"
     #nova adição
     db.create_all()
 # adiciona o acesso a banco e a chamada ao render_template
-    ucs_query = Uc.query.all()
-    return render_template('uc_list.html', ucs=ucs_query)
+    filmes2_query = Uc.query.all()
+    return render_template('uc_list.html', filmes2=filmes2_query)
 
 @ucBp.route('/uc/create')
 def create_uc():
@@ -28,7 +32,7 @@ def add_uc():
     dDescricao = request.form["descricao"]
     dFim = datetime.strptime(request.form["fim"], '%Y-%m-%d')
 
-    uc = Uc(nome=sNome, tipo=sTipo, descricao=dDescricao, fim=dFim)
+    uc = Uc(titulo=sNome, tipo=sTipo, descricao=dDescricao, fim=dFim)
     db.session.add(uc)
     db.session.commit()
 
