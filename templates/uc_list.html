@@ -58,6 +58,13 @@
             <div class="row">
                 <div class="col-xs-12">
                     <table class="table">
+                        <style type="text/css">
+                            table,thead,th,td,tr{border:2px solid #000;}
+                            tbody{color:black;background-color:cornsilk;opacity: 0.9;}
+                            thead{color:black;background-color:cornsilk;opacity: 0.9;}
+                            
+                                                    
+                        </style>
                         <thead>
                             <th>Título</th>
                             <th>Tipo</th>
@@ -72,9 +79,7 @@
                                 <td>{{uc.tipo}}</td>
                                 <td>{{uc.descricao}}</td>
                                 <td>{{uc.fim}}</td>
-                                <td><a href="/catalogo/update/{{uc.id}}" class="btn btn-primary btn-lg active"
-                                        role="button" aria-pressed="true">Alterar</a>
-                                <td><a href="/catalogo/update/{{uc.id}}" class="btn btn-primary btn-lg active"
+                                    <td><a href="/catalogo/update/{{uc.id}}" class="btn btn-primary btn-lg active"
                                         role="button" aria-pressed="true">Alterar</a>
                                     <a href="/catalogo/delete/{{uc.id}}" class="btn btn-danger btn-lg active"
                                         role="button" aria-pressed="true">Apagar</a>
