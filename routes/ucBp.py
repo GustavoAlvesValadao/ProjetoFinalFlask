@@ -23,12 +23,12 @@ def create_uc():
 @ucBp.route('/uc/add', methods=["POST"])
 def add_uc():
 
-    sNome = request.form["nome"]
+    sNome = request.form["titulo"]
     sTipo = request.form["tipo"]
-    dInicio = datetime.strptime(request.form["inicio"], '%Y-%m-%d')
+    dDescricao = request.form["descricao"]
     dFim = datetime.strptime(request.form["fim"], '%Y-%m-%d')
 
-    uc = Uc(nome=sNome, tipo=sTipo, inicio=dInicio, fim=dFim)
+    uc = Uc(nome=sNome, tipo=sTipo, descricao=dDescricao, fim=dFim)
     db.session.add(uc)
     db.session.commit()
 
@@ -44,15 +44,15 @@ def update_uc(uc_id=0):
 def upd_uc():
 
     iUc = request.form["id"]
-    sNome = request.form["nome"]
+    sNome = request.form["titulo"]
     sTipo = request.form["tipo"]
-    dInicio = datetime.strptime(request.form["inicio"], '%Y-%m-%d')
+    dDescricao = request.form["descricao"]
     dFim = datetime.strptime(request.form["fim"], '%Y-%m-%d')
 
     uc = Uc.query.filter_by(id = iUc).first()
     uc.nome = sNome
     uc.tipo = sTipo
-    uc.inicio = dInicio
+    uc.descricao = dDescricao
     uc.fim = dFim
     db.session.add(uc)
     db.session.commit()
